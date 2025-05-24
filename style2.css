@@ -1,0 +1,114 @@
+body {
+  background-color: #121212;
+  color: #eee;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 1.5rem;
+  color: #ccc;
+}
+.blazer-color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 340px;
+  margin-top: 10px;
+}
+
+.blazer-color-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 70%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: border 0.2s ease-in-out;
+}
+
+.blazer-color-swatch.selected {
+  border-color: #ecc114;
+}
+
+.pant-color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 320px;
+  margin-top: 10px;
+}
+
+.pant-color-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: border 0.2s ease-in-out;
+}
+
+.pant-color-swatch.selected {
+  border-color: #ecc114;
+}
+
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.color-swatch {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.color-swatch.selected {
+  border: 3px solid #ecc114;
+}
+
+
+select {
+  width: 100%;
+  padding: 0.5rem;
+  background: #2b2b2b;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.7rem;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #555;
+}

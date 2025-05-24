@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blazer Measurement</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <form id="blazerMeasurementForm" action="BlazerFabricSelection.html" method="get">
+    <h2>Blazer Measurement</h2>
+
+    <div class="input-group">
+      <label>Shoulder</label>
+      <div class="input-box">
+        <input type="number" name="shoulder" id="shoulder" placeholder="Enter Shoulder Size" required />
+        <select name="shoulderUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Chest</label>
+      <div class="input-box">
+        <input type="number" name="chest" id="chest" placeholder="Enter Chest Size" required />
+        <select name="chestUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Waist</label>
+      <div class="input-box">
+        <input type="number" name="waist" id="waist" placeholder="Enter Waist Size" required />
+        <select name="waistUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Sleeve Length</label>
+      <div class="input-box">
+        <input type="number" name="sleeveLength" id="sleeveLength" placeholder="Enter Sleeve Length" required />
+        <select name="sleeveUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Blazer Length</label>
+      <div class="input-box">
+        <input type="number" name="blazerLength" id="blazerLength" placeholder="Enter Blazer Length" required />
+        <select name="blazerLengthUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+    <button type="button" onclick="saveDefault()">Save as Default</button>
+  </form>
+
+  <script>
+    // Save default measurements to localStorage
+    function saveDefault() {
+      const fields = document.querySelectorAll("input, select");
+      fields.forEach(field => {
+        localStorage.setItem(field.name, field.value);
+      });
+      alert("Default blazer measurements saved!");
+    }
+
+    // Load default measurements on page load
+    window.onload = () => {
+      const fields = document.querySelectorAll("input, select");
+      fields.forEach(field => {
+        const saved = localStorage.getItem(field.name);
+        if (saved) field.value = saved;
+      });
+    };
+
+    // Optional: Build query string dynamically (if JS redirection used instead of form submission)
+    function goToBlazerFabricSelection() {
+      const shoulder = document.getElementById("shoulder").value;
+      const chest = document.getElementById("chest").value;
+      const waist = document.getElementById("waist").value;
+      const sleeveLength = document.getElementById("sleeveLength").value;
+      const blazerLength = document.getElementById("blazerLength").value;
+
+      const url = `BlazerFabricSelection.html?shoulder=${shoulder}&chest=${chest}&waist=${waist}&sleeveLength=${sleeveLength}&blazerLength=${blazerLength}`;
+
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>

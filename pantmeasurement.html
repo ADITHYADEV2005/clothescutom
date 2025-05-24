@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pant Measurement</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <form id="pantMeasurementForm" action="PantFabricSelection.html" method="get">
+    <h2>Pant Measurement</h2>
+
+    <div class="input-group">
+      <label>Waist</label>
+      <div class="input-box">
+        <input type="number" name="waist" id="waist" placeholder="Enter Waist Size" required />
+        <select name="waistUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Hip</label>
+      <div class="input-box">
+        <input type="number" name="hip" id="hip" placeholder="Enter Hip Size" required />
+        <select name="hipUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Thigh</label>
+      <div class="input-box">
+        <input type="number" name="thigh" id="thigh" placeholder="Enter Thigh Size" required />
+        <select name="thighUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Inseam</label>
+      <div class="input-box">
+        <input type="number" name="inseam" id="inseam" placeholder="Enter Inseam Length" required />
+        <select name="inseamUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Outseam</label>
+      <div class="input-box">
+        <input type="number" name="outseam" id="outseam" placeholder="Enter Outseam Length" required />
+        <select name="outseamUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Bottom Width</label>
+      <div class="input-box">
+        <input type="number" name="bottomWidth" id="bottomWidth" placeholder="Enter Bottom Width" required />
+        <select name="bottomWidthUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+    <button type="button" onclick="saveDefault()">Save as Default</button>
+  </form>
+
+  <script>
+    // Save default measurements to localStorage
+    function saveDefault() {
+      const fields = document.querySelectorAll("input, select");
+      fields.forEach(field => {
+        localStorage.setItem(field.name, field.value);
+      });
+      alert("Default pant measurements saved!");
+    }
+
+    // Load default measurements on page load
+    window.onload = () => {
+      const fields = document.querySelectorAll("input, select");
+      fields.forEach(field => {
+        const saved = localStorage.getItem(field.name);
+        if (saved) field.value = saved;
+      });
+    };
+
+    // Optional JS redirect (if you want to use this instead of form action)
+    function goToPantFabricSelection() {
+      const waist = document.getElementById("waist").value;
+      const hip = document.getElementById("hip").value;
+      const thigh = document.getElementById("thigh").value;
+      const inseam = document.getElementById("inseam").value;
+      const outseam = document.getElementById("outseam").value;
+      const bottomWidth = document.getElementById("bottomWidth").value;
+
+      const url = `PantFabricSelection.html?waist=${waist}&hip=${hip}&thigh=${thigh}&inseam=${inseam}&outseam=${outseam}&bottomWidth=${bottomWidth}`;
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>

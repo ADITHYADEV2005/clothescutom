@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vingt-trois</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:opsz,wght@10..72,100..900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="image/VINGT TRIOS.png" alt="Logo" />
+        </div>
+        
+        <div class="navbar-link">
+            <div class="nav-item">
+                <a href="index.html">Men</a>
+                <div class="dropdown">
+                    <img src="image/hiiii.jpg" alt="Men">
+                    <div class="dropdown-text">
+                        <h4>Men's Collection</h4>
+                        <p>Discover latest trends in men's fashion</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <a href="#">Women</a>
+                <div class="dropdown">
+                    <img src="image/siuu - Copy.jpg" alt="Women">
+                    <div class="dropdown-text">
+                        <h4>Women's Collection</h4>
+                        <p>Stylish designs curated for you</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <a href="#">Blazers</a>
+                <div class="dropdown">
+                    <img src="image/BLAZER.jpg" alt="Blazers">
+                    <div class="dropdown-text">
+                        <h4>Blazers</h4>
+                        <p>Elegant and professional look</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New icons for login, cart, search, world, INR -->
+            <div class="nav-icons">
+                <a href="login.html"><i class="fa-duotone fa-solid fa-user-secret"></i></a></div>
+                <div class="nav-icons">
+                <a href="cart.html"><i class="fa-duotone fa-solid fa-cart-flatbed-suitcase"></i></a>
+               
+</div>
+                <div class="world-icon">
+                    <i class="fa fa-globe" onclick="toggleCountryList()"></i>
+                    <div class="country-list" id="country-list">
+                        <!-- Dropdown list of countries -->
+                        <ul class="dropdown">
+                            <ul>
+                                <li onclick="selectCountry('Afghanistan')">Afghanistan</li>
+                                <li onclick="selectCountry('Albania')">Albania</li>
+                                <li onclick="selectCountry('Algeria')">Algeria</li>
+                                <li onclick="selectCountry('Andorra')">Andorra</li>
+                                <li onclick="selectCountry('Angola')">Angola</li>
+                                <li onclick="selectCountry('Antigua and Barbuda')">Antigua and Barbuda</li>
+                                <li onclick="selectCountry('Argentina')">Argentina</li>
+                                <li onclick="selectCountry('Armenia')">Armenia</li>
+                                <li onclick="selectCountry('Australia')">Australia</li>
+                                <li onclick="selectCountry('Austria')">Austria</li>
+                                <li onclick="selectCountry('Azerbaijan')">Azerbaijan</li>
+                                <li onclick="selectCountry('Bahamas')">Bahamas</li>
+                                <li onclick="selectCountry('Bahrain')">Bahrain</li>
+                                <li onclick="selectCountry('Bangladesh')">Bangladesh</li>
+                                <li onclick="selectCountry('Barbados')">Barbados</li>
+                                <li onclick="selectCountry('Belarus')">Belarus</li>
+                                <li onclick="selectCountry('Belgium')">Belgium</li>
+                                <li onclick="selectCountry('Belize')">Belize</li>
+                                <li onclick="selectCountry('Benin')">Benin</li>
+                                <li onclick="selectCountry('Bhutan')">Bhutan</li>
+                                <li onclick="selectCountry('Bolivia')">Bolivia</li>
+                                <li onclick="selectCountry('Bosnia and Herzegovina')">Bosnia and Herzegovina</li>
+                                <li onclick="selectCountry('Botswana')">Botswana</li>
+                                <li onclick="selectCountry('Brazil')">Brazil</li>
+                                <li onclick="selectCountry('Brunei')">Brunei</li>
+                                <li onclick="selectCountry('Bulgaria')">Bulgaria</li>
+                                <li onclick="selectCountry('Burkina Faso')">Burkina Faso</li>
+                                <li onclick="selectCountry('Burundi')">Burundi</li>
+                                <li onclick="selectCountry('Cabo Verde')">Cabo Verde</li>
+                                <li onclick="selectCountry('Cambodia')">Cambodia</li>
+                                <li onclick="selectCountry('Cameroon')">Cameroon</li>
+                                <li onclick="selectCountry('Canada')">Canada</li>
+                                <li onclick="selectCountry('Central African Republic')">Central African Republic</li>
+                                <li onclick="selectCountry('Chad')">Chad</li>
+                                <li onclick="selectCountry('Chile')">Chile</li>
+                                <li onclick="selectCountry('China')">China</li>
+                                <li onclick="selectCountry('Colombia')">Colombia</li>
+                                <li onclick="selectCountry('Comoros')">Comoros</li>
+                                <li onclick="selectCountry('Congo (Congo-Brazzaville)')">Congo (Congo-Brazzaville)</li>
+                                <li onclick="selectCountry('Congo (Democratic Republic)')">Congo (Democratic Republic)</li>
+                                <li onclick="selectCountry('Costa Rica')">Costa Rica</li>
+                                <li onclick="selectCountry('Croatia')">Croatia</li>
+                                <li onclick="selectCountry('Cuba')">Cuba</li>
+                                <li onclick="selectCountry('Cyprus')">Cyprus</li>
+                                <li onclick="selectCountry('Czech Republic')">Czech Republic</li>
+                                <li onclick="selectCountry('Denmark')">Denmark</li>
+                                <li onclick="selectCountry('Djibouti')">Djibouti</li>
+                                <li onclick="selectCountry('Dominica')">Dominica</li>
+                                <li onclick="selectCountry('Dominican Republic')">Dominican Republic</li>
+                                <li onclick="selectCountry('Ecuador')">Ecuador</li>
+                                <li onclick="selectCountry('Egypt')">Egypt</li>
+                                <li onclick="selectCountry('El Salvador')">El Salvador</li>
+                                <li onclick="selectCountry('Equatorial Guinea')">Equatorial Guinea</li>
+                                <li onclick="selectCountry('Eritrea')">Eritrea</li>
+                                <li onclick="selectCountry('Estonia')">Estonia</li>
+                                <li onclick="selectCountry('Eswatini')">Eswatini</li>
+                                <li onclick="selectCountry('Ethiopia')">Ethiopia</li>
+                                <li onclick="selectCountry('Fiji')">Fiji</li>
+                                <li onclick="selectCountry('Finland')">Finland</li>
+                                <li onclick="selectCountry('France')">France</li>
+                                <li onclick="selectCountry('Gabon')">Gabon</li>
+                                <li onclick="selectCountry('Gambia')">Gambia</li>
+                                <li onclick="selectCountry('Georgia')">Georgia</li>
+                                <li onclick="selectCountry('Germany')">Germany</li>
+                                <li onclick="selectCountry('Ghana')">Ghana</li>
+                                <li onclick="selectCountry('Greece')">Greece</li>
+                                <li onclick="selectCountry('Grenada')">Grenada</li>
+                                <li onclick="selectCountry('Guatemala')">Guatemala</li>
+                                <li onclick="selectCountry('Guinea')">Guinea</li>
+                                <li onclick="selectCountry('Guinea-Bissau')">Guinea-Bissau</li>
+                                <li onclick="selectCountry('Guyana')">Guyana</li>
+                                <li onclick="selectCountry('Haiti')">Haiti</li>
+                                <li onclick="selectCountry('Honduras')">Honduras</li>
+                                <li onclick="selectCountry('Hungary')">Hungary</li>
+                                <li onclick="selectCountry('Iceland')">Iceland</li>
+                                <li onclick="selectCountry('India')">India</li>
+                                <li onclick="selectCountry('Indonesia')">Indonesia</li>
+                                <li onclick="selectCountry('Iran')">Iran</li>
+                                <li onclick="selectCountry('Iraq')">Iraq</li>
+                                <li onclick="selectCountry('Ireland')">Ireland</li>
+                                <li onclick="selectCountry('Israel')">Israel</li>
+                                <li onclick="selectCountry('Italy')">Italy</li>
+                                <li onclick="selectCountry('Jamaica')">Jamaica</li>
+                                <li onclick="selectCountry('Japan')">Japan</li>
+                                <li onclick="selectCountry('Jordan')">Jordan</li>
+                                <li onclick="selectCountry('Kazakhstan')">Kazakhstan</li>
+                                <li onclick="selectCountry('Kenya')">Kenya</li>
+                                <li onclick="selectCountry('Kiribati')">Kiribati</li>
+                                <li onclick="selectCountry('Korea (North)')">Korea (North)</li>
+                                <li onclick="selectCountry('Korea (South)')">Korea (South)</li>
+                                <li onclick="selectCountry('Kuwait')">Kuwait</li>
+                                <li onclick="selectCountry('Kyrgyzstan')">Kyrgyzstan</li>
+                                <li onclick="selectCountry('Laos')">Laos</li>
+                                <li onclick="selectCountry('Latvia')">Latvia</li>
+                                <li onclick="selectCountry('Lebanon')">Lebanon</li>
+                                <li onclick="selectCountry('Lesotho')">Lesotho</li>
+                                <li onclick="selectCountry('Liberia')">Liberia</li>
+                                <li onclick="selectCountry('Libya')">Libya</li>
+                                <li onclick="selectCountry('Liechtenstein')">Liechtenstein</li>
+                                <li onclick="selectCountry('Lithuania')">Lithuania</li>
+                                <li onclick="selectCountry('Luxembourg')">Luxembourg</li>
+                                <li onclick="selectCountry('Madagascar')">Madagascar</li>
+                                <li onclick="selectCountry('Malawi')">Malawi</li>
+                                <li onclick="selectCountry('Malaysia')">Malaysia</li>
+                                <li onclick="selectCountry('Maldives')">Maldives</li>
+                                <li onclick="selectCountry('Mali')">Mali</li>
+                                <li onclick="selectCountry('Malta')">Malta</li>
+                                <li onclick="selectCountry('Marshall Islands')">Marshall Islands</li>
+                                <li onclick="selectCountry('Mauritania')">Mauritania</li>
+                                <li onclick="selectCountry('Mauritius')">Mauritius</li>
+                                <li onclick="selectCountry('Mexico')">Mexico</li>
+                                <li onclick="selectCountry('Micronesia')">Micronesia</li>
+                                <li onclick="selectCountry('Moldova')">Moldova</li>
+                                <li onclick="selectCountry('Monaco')">Monaco</li>
+                                <li onclick="selectCountry('Mongolia')">Mongolia</li>
+                                <li onclick="selectCountry('Montenegro')">Montenegro</li>
+                                <li onclick="selectCountry('Morocco')">Morocco</li>
+                                <li onclick="selectCountry('Mozambique')">Mozambique</li>
+                                <li onclick="selectCountry('Myanmar')">Myanmar</li>
+                                <li onclick="selectCountry('Namibia')">Namibia</li>
+                                <li onclick="selectCountry('Nauru')">Nauru</li>
+                                <li onclick="selectCountry('Nepal')">Nepal</li>
+                                <li onclick="selectCountry('Netherlands')">Netherlands</li>
+                                <li onclick="selectCountry('New Zealand')">New Zealand</li>
+                                <li onclick="selectCountry('Nicaragua')">Nicaragua</li>
+                                <li onclick="selectCountry('Niger')">Niger</li>
+                                <li onclick="selectCountry('Nigeria')">Nigeria</li>
+                                <li onclick="selectCountry('North Macedonia')">North Macedonia</li>
+                                <li onclick="selectCountry('Norway')">Norway</li>
+                                <li onclick="selectCountry('Oman')">Oman</li>
+                                <li onclick="selectCountry('Pakistan')">Pakistan</li>
+                                <li onclick="selectCountry('Palau')">Palau</li>
+                                <li onclick="selectCountry('Panama')">Panama</li>
+                                <li onclick="selectCountry('Papua New Guinea')">Papua New Guinea</li>
+                                <li onclick="selectCountry('Paraguay')">Paraguay</li>
+                                <li onclick="selectCountry('Peru')">Peru</li>
+                                <li onclick="selectCountry('Philippines')">Philippines</li>
+                                <li onclick="selectCountry('Poland')">Poland</li>
+                                <li onclick="selectCountry('Portugal')">Portugal</li>
+                                <li onclick="selectCountry('Qatar')">Qatar</li>
+                                <li onclick="selectCountry('Romania')">Romania</li>
+                                <li onclick="selectCountry('Russia')">Russia</li>
+                                <li onclick="selectCountry('Rwanda')">Rwanda</li>
+                                <li onclick="selectCountry('Saint Kitts and Nevis')">Saint Kitts and Nevis</li>
+                                <li onclick="selectCountry('Saint Lucia')">Saint Lucia</li>
+                                <li onclick="selectCountry('Saint Vincent and the Grenadines')">Saint Vincent and the Grenadines</li>
+                                <li onclick="selectCountry('Samoa')">Samoa</li>
+                                <li onclick="selectCountry('San Marino')">San Marino</li>
+                                <li onclick="selectCountry('Sao Tome and Principe')">Sao Tome and Principe</li>
+                                <li onclick="selectCountry('Saudi Arabia')">Saudi Arabia</li>
+                                <li onclick="selectCountry('Senegal')">Senegal</li>
+                                <li onclick="selectCountry('Serbia')">Serbia</li>
+                                <li onclick="selectCountry('Seychelles')">Seychelles</li>
+                                <li onclick="selectCountry('Sierra Leone')">Sierra Leone</li>
+                                <li onclick="selectCountry('Singapore')">Singapore</li>
+                                <li onclick="selectCountry('Slovakia')">Slovakia</li>
+                                <li onclick="selectCountry('Slovenia')">Slovenia</li>
+                                <li onclick="selectCountry('Solomon Islands')">Solomon Islands</li>
+                                <li onclick="selectCountry('Somalia')">Somalia</li>
+                                <li onclick="selectCountry('South Africa')">South Africa</li>
+                                <li onclick="selectCountry('South Sudan')">South Sudan</li>
+                                <li onclick="selectCountry('Spain')">Spain</li>
+                                <li onclick="selectCountry('Sri Lanka')">Sri Lanka</li>
+                                <li onclick="selectCountry('Sudan')">Sudan</li>
+                                <li onclick="selectCountry('Suriname')">Suriname</li>
+                                <li onclick="selectCountry('Sweden')">Sweden</li>
+                                <li onclick="selectCountry('Switzerland')">Switzerland</li>
+                                <li onclick="selectCountry('Syria')">Syria</li>
+                                <li onclick="selectCountry('Taiwan')">Taiwan</li>
+                                <li onclick="selectCountry('Tajikistan')">Tajikistan</li>
+                                <li onclick="selectCountry('Tanzania')">Tanzania</li>
+                                <li onclick="selectCountry('Thailand')">Thailand</li>
+                                <li onclick="selectCountry('Timor-Leste')">Timor-Leste</li>
+                                <li onclick="selectCountry('Togo')">Togo</li>
+                                <li onclick="selectCountry('Tonga')">Tonga</li>
+                                <li onclick="selectCountry('Trinidad and Tobago')">Trinidad and Tobago</li>
+                                <li onclick="selectCountry('Tunisia')">Tunisia</li>
+                                <li onclick="selectCountry('Turkey')">Turkey</li>
+                                <li onclick="selectCountry('Turkmenistan')">Turkmenistan</li>
+                                <li onclick="selectCountry('Tuvalu')">Tuvalu</li>
+                                <li onclick="selectCountry('Uganda')">Uganda</li>
+                                <li onclick="selectCountry('Ukraine')">Ukraine</li>
+                                <li onclick="selectCountry('United Arab Emirates')">United Arab Emirates</li>
+                                <li onclick="selectCountry('United Kingdom')">United Kingdom</li>
+                                <li onclick="selectCountry('United States')">United States</li>
+                                <li onclick="selectCountry('Uruguay')">Uruguay</li>
+                                <li onclick="selectCountry('Uzbekistan')">Uzbekistan</li>
+                                <li onclick="selectCountry('Vanuatu')">Vanuatu</li>
+                                <li onclick="selectCountry('Vatican City')">Vatican City</li>
+                                <li onclick="selectCountry('Venezuela')">Venezuela</li>
+                                <li onclick="selectCountry('Vietnam')">Vietnam</li>
+                                <li onclick="selectCountry('Yemen')">Yemen</li>
+                                <li onclick="selectCountry('Zambia')">Zambia</li>
+                                <li onclick="selectCountry('Zimbabwe')">Zimbabwe</li>
+                            </ul>
+                            
+                        </ul>
+                    </div>
+                    <div id="india" class="country-content" style="display: none;">
+                        <!-- India-specific content -->
+                      </div>
+
+                </div>
+
+                <!-- INR selection icon -->
+                <div class="currency-dropdown">
+                    <div class="currency-display" onclick="toggleCurrencyList()">
+                        <span id="currency-text">INR</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="currency-list" id="currency-list">
+                        <ul class="dropdown">
+                            <li onclick="selectCurrency('AED')">AED</li>
+                            <li onclick="selectCurrency('AUD')">AUD</li>
+                            <li onclick="selectCurrency('BDT')">BDT</li>
+                            <li onclick="selectCurrency('BHD')">BHD</li>
+                            <li onclick="selectCurrency('BRL')">BRL</li>
+                            <li onclick="selectCurrency('CAD')">CAD</li>
+                            <li onclick="selectCurrency('CHF')">CHF</li>
+                            <li onclick="selectCurrency('CNY')">CNY</li>
+                            <li onclick="selectCurrency('DKK')">DKK</li>
+                            <li onclick="selectCurrency('EGP')">EGP</li>
+                            <li onclick="selectCurrency('EUR')">EUR</li>
+                            <li onclick="selectCurrency('GBP')">GBP</li>
+                            <li onclick="selectCurrency('HKD')">HKD</li>
+                            <li onclick="selectCurrency('IDR')">IDR</li>
+                            <li onclick="selectCurrency('ILS')">ILS</li>
+                            <li onclick="selectCurrency('INR')">INR</li>
+                            <li onclick="selectCurrency('JPY')">JPY</li>
+                            <li onclick="selectCurrency('KRW')">KRW</li>
+                            <li onclick="selectCurrency('KWD')">KWD</li>
+                            <li onclick="selectCurrency('LKR')">LKR</li>
+                            <li onclick="selectCurrency('MXN')">MXN</li>
+                            <li onclick="selectCurrency('MYR')">MYR</li>
+                            <li onclick="selectCurrency('NGN')">NGN</li>
+                            <li onclick="selectCurrency('NOK')">NOK</li>
+                            <li onclick="selectCurrency('NZD')">NZD</li>
+                            <li onclick="selectCurrency('OMR')">OMR</li>
+                            <li onclick="selectCurrency('PHP')">PHP</li>
+                            <li onclick="selectCurrency('PKR')">PKR</li>
+                            <li onclick="selectCurrency('QAR')">QAR</li>
+                            <li onclick="selectCurrency('RUB')">RUB</li>
+                            <li onclick="selectCurrency('SAR')">SAR</li>
+                            <li onclick="selectCurrency('SEK')">SEK</li>
+                            <li onclick="selectCurrency('SGD')">SGD</li>
+                            <li onclick="selectCurrency('THB')">THB</li>
+                            <li onclick="selectCurrency('TRY')">TRY</li>
+                            <li onclick="selectCurrency('TWD')">TWD</li>
+                            <li onclick="selectCurrency('USD')">USD</li>
+                            <li onclick="selectCurrency('VND')">VND</li>
+                            <li onclick="selectCurrency('ZAR')">ZAR</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="navbar-menu-toggle" onclick="showNavbar()">
+            <i class="fa-duotone fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <div class="video-container">
+        <video autoplay loop muted playsinline>
+            <source src="video/promo.mp4" type="video/mp4">
+        </video>
+        <div class="overlay-content">
+            <p><b>WELCOME TO VINGT-TROIS</b></p>
+            <button>Shop Now</button>
+            
+        </div>
+    </div>
+    <div class="item">
+        <div class="details">
+          <h2>Shirt</h2>
+          <p>Perfectly tailored formal shirts for every professional occasion.</p>
+          <a href="product.html?category=shirt"><button class="black-button">know More</button></a>
+        </div>
+        <img src="image/shirt we.jpg" alt="Shirt">
+      </div>
+      
+      <div class="item reverse">
+        <div class="details">
+          <h2>Pant</h2>
+          <p>Classic formal trousers crafted for both style and comfort.</p>
+          <a href="product.html?category=pant"><button class="black-button">know More</button></a>
+        </div>
+        <img src="image/pant we.jpg" alt="Pant">
+      </div>
+      
+      <div class="item">
+        <div class="details">
+          <h2>Blazer</h2>
+          <p>Stylish blazers designed to make a statement at every meeting.</p>
+          <a href="product.html?category=blazer"><button class="black-button">know More</button></a>
+        </div>
+        <img src="image/bw blaz.jpg" alt="Blazer">
+      </div>
+      
+    <script src="index.js"></script>
+</body>
+
+</html>

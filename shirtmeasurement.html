@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shirt Measurement</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <form id="measurementForm" action="ShirtFabricSelection.html" method="get">
+    <h2>Shirt Measurement</h2>
+
+    <div class="input-group">
+      <label>Neck</label>
+      <div class="input-box">
+        <input type="number" name="neck" id="neck" placeholder="Enter Neck Size" required />
+        <select name="neckUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Shoulder</label>
+      <div class="input-box">
+        <input type="number" name="shoulder" id="shoulder" placeholder="Enter Shoulder Size" required />
+        <select name="shoulderUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Chest</label>
+      <div class="input-box">
+        <input type="number" name="chest" id="chest" placeholder="Enter Chest Size" required />
+        <select name="chestUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Waist</label>
+      <div class="input-box">
+        <input type="number" name="waist" id="waist" placeholder="Enter Waist Size" required />
+        <select name="waistUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Sleeve Length</label>
+      <div class="input-box">
+        <input type="number" name="sleeveLength" id="sleeveLength" placeholder="Enter Sleeve Length" required />
+        <select name="sleeveUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Shirt Length</label>
+      <div class="input-box">
+        <input type="number" name="shirtLength" id="shirtLength" placeholder="Enter Shirt Length" required />
+        <select name="shirtLengthUnit">
+          <option value="inches">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+    <button type="button" onclick="saveDefault()">Save as Default</button>
+  </form>
+
+   <script>
+    function goToFabricSelection() {
+      const neck = document.getElementById("neck").value;
+      const shoulder = document.getElementById("shoulder").value;
+      const chest = document.getElementById("chest").value;
+      const waist = document.getElementById("waist").value;
+      const sleeveLength = document.getElementById("sleeveLength").value;
+      const shirtLength = document.getElementById("shirtLength").value;
+
+      const url = `ShirtFabricSelection.html?neck=${neck}&shoulder=${shoulder}&chest=${chest}&waist=${waist}&sleeveLength=${sleeveLength}&shirtLength=${shirtLength}`;
+      
+      // Redirect to Fabric Selection page
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pant Fabric Selection</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Pant Fabric & Style Selection</h2>
+
+    <form id="pantForm">
+      <label>Fabric Type:
+        <select id="fabric" name="fabric">
+          <option value="Wool Blend">Wool Blend</option>
+          <option value="Cotton Twill">Cotton Twill</option>
+          <option value="Linen">Linen</option>
+          <option value="Polyester">Polyester</option>
+          <option value="Stretch Fabric">Stretch Fabric</option>
+        </select>
+      </label>
+      <label>Pant Fabric Color:</label>
+<div class="pant-color-options">
+  <div class="pant-color-swatch" style="background-color: black;" data-color="Black"></div>
+  <div class="pant-color-swatch" style="background-color: navy;" data-color="Navy Blue"></div>
+  <div class="pant-color-swatch" style="background-color: grey;" data-color="Grey"></div>
+  <div class="pant-color-swatch" style="background-color: #36454F;" data-color="Charcoal"></div>
+  <div class="pant-color-swatch" style="background-color: lightgrey;" data-color="Light Grey"></div>
+  <div class="pant-color-swatch" style="background-color: khaki;" data-color="Khaki"></div>
+  <div class="pant-color-swatch" style="background-color: beige;" data-color="Beige"></div>
+  <div class="pant-color-swatch" style="background-color: brown;" data-color="Brown"></div>
+  <div class="pant-color-swatch" style="background-color: olive;" data-color="Olive Green"></div>
+  <div class="pant-color-swatch" style="background-color: #4b3621;" data-color="Dark Brown"></div>
+  <div class="pant-color-swatch" style="background-color: #f5f5dc;" data-color="Cream"></div>
+  <div class="pant-color-swatch" style="background-color: white;" data-color="White"></div>
+  <div class="pant-color-swatch" style="background-color: #6e7f80;" data-color="Steel Grey"></div>
+  <div class="pant-color-swatch" style="background-color: #b2beb5;" data-color="Ash Grey"></div>
+  <div class="pant-color-swatch" style="background-color: sandybrown;" data-color="Sand"></div>
+  <div class="pant-color-swatch" style="background-color: #967969;" data-color="Mocha"></div>
+  <div class="pant-color-swatch" style="background-color: #483c32;" data-color="Taupe"></div>
+  <div class="pant-color-swatch" style="background-color: #e5e4e2;" data-color="Stone"></div>
+  <div class="pant-color-swatch" style="background-color: #a8c3d1;" data-color="Dusty Blue"></div>
+  <div class="pant-color-swatch" style="background-color: slategray;" data-color="Slate"></div>
+
+  <input type="hidden" id="pantColor" name="pantColor">
+</div>
+
+
+      <label>Fit Type:
+        <select id="fitType" name="fitType">
+          <option value="Regular">Regular</option>
+          <option value="Slim Fit">Slim Fit</option>
+          <option value="Relaxed Fit">Relaxed Fit</option>
+          <option value="Tapered">Tapered</option>
+        </select>
+      </label>
+
+      <label>Lining:
+        <select id="lining" name="lining">
+          <option value="No Lining">No Lining</option>
+          <option value="Half Lining">Half Lining</option>
+          <option value="Full Lining">Full Lining</option>
+        </select>
+      </label>
+
+      <label>Pleats:
+        <select id="pleats" name="pleats">
+          <option value="No Pleats">No Pleats</option>
+          <option value="Single Pleat">Single Pleat</option>
+          <option value="Double Pleats">Double Pleats</option>
+        </select>
+      </label>
+
+      <button type="button" onclick="goTo3DModel()">Submit</button>
+    </form>
+
+    <script>
+      function goTo3DModel() {
+        // Collect pant style selections
+        const fabric = document.getElementById('fabric').value;
+        const fitType = document.getElementById('fitType').value;
+        const lining = document.getElementById('lining').value;
+        const pleats = document.getElementById('pleats').value;
+
+        // Retrieve measurements from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const waist = urlParams.get('waist');
+        const hip = urlParams.get('hip');
+        const inseam = urlParams.get('inseam');
+        const outseam = urlParams.get('outseam');
+
+        // Construct URL for preview page
+        const modelUrl = `3DModelPreview.html?fabric=${encodeURIComponent(fabric)}&fitType=${encodeURIComponent(fitType)}&lining=${encodeURIComponent(lining)}&pleats=${encodeURIComponent(pleats)}&waist=${encodeURIComponent(waist)}&hip=${encodeURIComponent(hip)}&inseam=${encodeURIComponent(inseam)}&outseam=${encodeURIComponent(outseam)}`;
+
+        // Redirect
+        window.location.href = modelUrl;
+      }
+      document.querySelectorAll('.pant-color-swatch').forEach(swatch => {
+  swatch.addEventListener('click', function () {
+    document.getElementById('pantColor').value = this.dataset.color;
+    alert(`Selected Pant Color: ${this.dataset.color}`);
+  });
+});
+
+    </script>
+  </div>
+</body>
+</html>

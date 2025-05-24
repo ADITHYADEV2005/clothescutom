@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garment Measurement Form</title>
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: #6d6f71;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #626568;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Upper Garment Measurement Form</h2>
+    <form>
+      <label for="neck">Neck Circumference <select id="unitSelect" onchange="handleUnitChange()">
+        <option value="cm">Centimeters</option>
+        <option value="in">Inches</option>
+      </select>:</label>
+      <input type="number" id="neck" name="neck">
+
+      <label for="shoulder">Shoulder Width <select id="unitSelect" onchange="handleUnitChange()">
+        <option value="cm">Centimeters</option>
+        <option value="in">Inches</option>
+      </select>:</label>
+      <input type="number" id="shoulder" name="shoulder">
+
+      <label for="chest">Chest/Bust Circumference <select id="unitSelect" onchange="handleUnitChange()">
+        <option value="cm">Centimeters</option>
+        <option value="in">Inches</option>
+      </select></label>
+      <input type="number" id="chest" name="chest">
+
+      <label for="waist">Waist Circumference <select id="unitSelect" onchange="handleUnitChange()">
+        <option value="cm">Centimeters</option>
+        <option value="in">Inches</option>
+      </select>:</label>
+      <input type="number" id="waist" name="waist">
+
+      <label for="hip">Hip Circumference<select id="unitSelect" onchange="handleUnitChange()">
+        <option value="cm">Centimeters</option>
+        <option value="in">Inches</option>
+      </select></label>
+      <input type="number" id="hip" name="hip">
+
+      <label for="armhole">Armhole Depth <select id="unitSelect" onchange="handleUnitChange()">
+        <option value="cm">Centimeters</option>
+        <option value="in">Inches</option>
+      </select>:</label>
+      <input type="number" id="armhole" name="armhole">
+
+      <label for="sleeve">Sleeve Length <select id="unitSelect" onchange="handleUnitChange()">
+        <option value="cm">Centimeters</option>
+        <option value="in">Inches</option>
+      </select>:</label>
+      <input type="number" id="sleeve" name="sleeve">
+
+      <label for="bicep">Bicep Circumference<select id="unitSelect" onchange="handleUnitChange()">
+        <option value="cm">Centimeters</option>
+        <option value="in">Inches</option>
+      </select>:</label>
+      <input type="number" id="bicep" name="bicep">
+
+      <label for="wrist">Wrist Circumference <select id="unitSelect" onchange="handleUnitChange()">
+        <option value="cm">Centimeters</option>
+        <option value="in">Inches</option>
+      </select>:</label>
+      <input type="number" id="wrist" name="wrist">
+
+     <a href="cloth.html"><button type="submit">Submit Measurements</button></a>
+    </form>
+  </div>
+  <script src="product.js"></script>
+</body>
+</body>
+</html>

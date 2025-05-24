@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3D Model Preview</title>
+  <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+  <div class="container">
+    <h2>3D Model Preview</h2>
+    <div id="details">
+      <h3>Selected Fabric & Measurements</h3>
+      <p id="fabricDetails"></p>
+      <p id="measurementDetails"></p>
+    </div>
+
+    <!-- 3D Model Viewer -->
+    <div id="threeDModelViewer">
+      <p>3D Model will appear here. (This is a placeholder)</p>
+      <!-- Three.js canvas will be inserted here -->
+    </div>
+
+    <!-- Go back or finalize -->
+    <div class="buttons">
+      <button onclick="goBack()">Go Back</button>
+      <button onclick="finalize()">Finalize Design</button>
+    </div>
+  </div>
+
+  <script>
+    // Function to get URL parameters
+    function getURLParams() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return {
+        type: urlParams.get('type'),  // Type of clothing (shirt, pant, or blazer)
+        fabric: urlParams.get('fabric'),
+        sleeveStyle: urlParams.get('sleeveStyle'),
+        collarType: urlParams.get('collarType'),
+        placketStyle: urlParams.get('placketStyle'),
+        pocketStyle: urlParams.get('pocketStyle'),
+        neck: parseFloat(urlParams.get('neck')),
+        shoulder: parseFloat(urlParams.get('shoulder')),
+        chest: parseFloat(urlParams.get('chest')),
+        waist: parseFloat(urlParams.get('waist')),
+        sleeveLength: parseFloat(urlParams.get('sleeveLength')),
+        shirtLength: parseFloat(urlParams.get('shirtLength')),
+        pantLength: parseFloat(urlParams.get('pantLength')), // For pants
+        blazerChest: parseFloat(urlParams.get('blazerChest')) // For blazer
+      };
+    }
+
+    // Function to display the correct details based on item type (shirt, pant, blazer)
+    function displayDetails() {
+      const params = getURLParams();
+
+      let fabricDetails = '';
+      let measurementDetails = '';
+
+      // Show details based on the type (shirt, pant, or blazer)
+      if (params.type === 'shirt') {
+        fabricDetails = `Fabric Type: ${params.fabric}<br>Sleeve Style: ${params.sleeveStyle}<br>Collar Type: ${params.collarType}<br>Placket Style: ${params.placketStyle}<br>Pocket Style: ${params.pocketStyle}`;
+        measurementDetails = `Neck: ${params.neck} inches<br>Shoulder: ${params.shoulder} inches<br>Chest: ${params.chest} inches<br>Waist: ${params.waist} inches<br>Sleeve Length: ${params.sleeveLength} inches<br>Shirt Length: ${params.shirtLength} inches`;
+      } else if (params.type === 'pant') {
+        fabricDetails = `Fabric Type: ${params.fabric}<br>Pant Length: ${params.pantLength} inches`;
+        measurementDetails = `Waist: ${params.waist} inches<br>Pant Length: ${params.pantLength} inches`;
+      } else if (params.type === 'blazer') {
+        fabricDetails = `Fabric Type: ${params.fabric}<br>Chest: ${params.blazerChest} inches`;
+        measurementDetails = `Chest: ${params.blazerChest} inches<br>Sleeve Length: ${params.sleeveLength} inches`;
+      }
+
+      // Display the fabric and measurement details
+      document.getElementById("fabricDetails").innerHTML = fabricDetails;
+      document.getElementById("measurementDetails").innerHTML = measurementDetails;
+    }
+
+    // Placeholder function for "Go Back" and "Finalize Design"
+    function goBack() {
+      window.history.back();
+    }
+
+    function finalize() {
+      alert('Design finalized!');
+    }
+
+    // Call the function to display the details
+    window.onload = function() {
+      displayDetails();
+    };
+  </script>
+</body>
+</html>

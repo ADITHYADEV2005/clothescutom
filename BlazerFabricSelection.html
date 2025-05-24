@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blazer Fabric Selection</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Blazer Fabric & Style Selection</h2>
+
+    <form id="blazerForm">
+      <label>Fabric Type:
+        <select id="fabric" name="fabric">
+          <option value="Wool">Wool</option>
+          <option value="Cashmere">Cashmere</option>
+          <option value="Cotton">Cotton</option>
+          <option value="Linen">Linen</option>
+          <option value="Velvet">Velvet</option>
+          <option value="Tweed">Tweed</option>
+        </select>
+      </label>
+      <label>Blazer Fabric Color:</label>
+<div class="blazer-color-options">
+  <div class="blazer-color-swatch" style="background-color: black;" data-color="Black"></div>
+  <div class="blazer-color-swatch" style="background-color: navy;" data-color="Navy Blue"></div>
+  <div class="blazer-color-swatch" style="background-color: #36454F;" data-color="Charcoal Grey"></div>
+  <div class="blazer-color-swatch" style="background-color: grey;" data-color="Medium Grey"></div>
+  <div class="blazer-color-swatch" style="background-color: lightgrey;" data-color="Light Grey"></div>
+  <div class="blazer-color-swatch" style="background-color: #4682B4;" data-color="Blue"></div>
+  <div class="blazer-color-swatch" style="background-color: #4b3621;" data-color="Dark Brown"></div>
+  <div class="blazer-color-swatch" style="background-color: tan;" data-color="Tan"></div>
+  <div class="blazer-color-swatch" style="background-color: beige;" data-color="Beige"></div>
+  <div class="blazer-color-swatch" style="background-color: olive;" data-color="Olive Green"></div>
+  <div class="blazer-color-swatch" style="background-color: maroon;" data-color="Maroon"></div>
+  <div class="blazer-color-swatch" style="background-color: #800020;" data-color="Burgundy"></div>
+  <div class="blazer-color-swatch" style="background-color: white;" data-color="White"></div>
+  <div class="blazer-color-swatch" style="background-color: #f5f5dc;" data-color="Cream"></div>
+  <div class="blazer-color-swatch" style="background-color: #468499;" data-color="Steel Blue"></div>
+  <div class="blazer-color-swatch" style="background-color: #006400;" data-color="Bottle Green"></div>
+  <div class="blazer-color-swatch" style="background-color: slategray;" data-color="Slate Grey"></div>
+  <div class="blazer-color-swatch" style="background-color: #b7410e;" data-color="Rust"></div>
+  <div class="blazer-color-swatch" style="background-color: teal;" data-color="Teal"></div>
+  <div class="blazer-color-swatch" style="background-color: khaki;" data-color="Khaki"></div>
+
+  <input type="hidden" id="blazerColor" name="blazerColor">
+</div>
+
+
+      <label>Lining Type:
+        <select id="liningType" name="liningType">
+          <option value="Silk Lining">Silk Lining</option>
+          <option value="Polyester Lining">Polyester Lining</option>
+          <option value="Full Lining">Full Lining</option>
+          <option value="Half Lining">Half Lining</option>
+          <option value="No Lining">No Lining</option>
+        </select>
+      </label>
+
+      <label>Button Style:
+        <select id="buttonStyle" name="buttonStyle">
+          <option value="Two Button">Two Button</option>
+          <option value="Three Button">Three Button</option>
+          <option value="Double Breasted">Double Breasted</option>
+        </select>
+      </label>
+
+      <label>Lapels:
+        <select id="lapels" name="lapels">
+          <option value="Notch Lapel">Notch Lapel</option>
+          <option value="Shawl Lapel">Shawl Lapel</option>
+          <option value="Peak Lapel">Peak Lapel</option>
+        </select>
+      </label>
+
+      <label>Pockets:
+        <select id="pockets" name="pockets">
+          <option value="Flap Pockets">Flap Pockets</option>
+          <option value="Welt Pockets">Welt Pockets</option>
+          <option value="Patch Pockets">Patch Pockets</option>
+        </select>
+      </label>
+
+      <button type="button" onclick="goTo3DModel()">Submit</button>
+    </form>
+
+    <script>
+      function goTo3DModel() {
+        // Collect blazer selections
+        const fabric = document.getElementById('fabric').value;
+        const liningType = document.getElementById('liningType').value;
+        const buttonStyle = document.getElementById('buttonStyle').value;
+        const lapels = document.getElementById('lapels').value;
+        const pockets = document.getElementById('pockets').value;
+
+        // Retrieve measurements from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const chest = urlParams.get('chest');
+        const waist = urlParams.get('waist');
+        const shoulder = urlParams.get('shoulder');
+        const sleeveLength = urlParams.get('sleeveLength');
+        const blazerLength = urlParams.get('blazerLength');
+
+        // Construct URL
+        const modelUrl = `3DModelPreview.html?fabric=${encodeURIComponent(fabric)}&liningType=${encodeURIComponent(liningType)}&buttonStyle=${encodeURIComponent(buttonStyle)}&lapels=${encodeURIComponent(lapels)}&pockets=${encodeURIComponent(pockets)}&chest=${encodeURIComponent(chest)}&waist=${encodeURIComponent(waist)}&shoulder=${encodeURIComponent(shoulder)}&sleeveLength=${encodeURIComponent(sleeveLength)}&blazerLength=${encodeURIComponent(blazerLength)}`;
+
+        // Redirect
+        window.location.href = modelUrl;
+      }
+      document.querySelectorAll('.blazer-color-swatch').forEach(swatch => {
+  swatch.addEventListener('click', function () {
+    document.getElementById('blazerColor').value = this.dataset.color;
+    alert(`Selected Blazer Color: ${this.dataset.color}`);
+  });
+});
+
+    </script>
+  </div>
+</body>
+</html>
