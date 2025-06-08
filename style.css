@@ -18,8 +18,8 @@ body{
         font-size:xx-large;
     }
     .navbar-logo img {
-      height: 200px; /* adjust size as needed */
-      width: auto;
+      height: 90px; /* adjust size as needed */
+      width: 90px;
       object-fit: contain;
     }
     .nav-icons,.nav-item{
