@@ -1,0 +1,32 @@
+{
+  "name": "phinix",
+  "version": "1.0.0",
+  "description": "This is a responsive and interactive website built to visualize and customize clothing designs using 3D previews. \r The project allows users to select fabric, take measurements, and preview shirts, pants, and blazers in a customized view.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ADITHYADEV2005/clothescutom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ADITHYADEV2005/clothescutom/issues"
+  },
+  "homepage": "https://github.com/ADITHYADEV2005/clothescutom#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "mongodb": "^6.17.0",
+    "mongoose": "^8.15.1",
+    "multer": "^2.0.1"
+  }
+}

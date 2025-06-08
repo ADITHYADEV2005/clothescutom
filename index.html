@@ -26,7 +26,7 @@
     <nav class="navbar">
         <div class="navbar-logo">
             <img src="image/logo.png" alt="Logo" />
-            
+
         </div>
         
         <div class="navbar-link">
@@ -65,7 +65,8 @@
 
             <!-- New icons for login, cart, search, world, INR -->
             <div class="nav-icons">
-                <a href="login.html"><i class="fa-duotone fa-solid fa-user-secret"></i></a></div>
+  <a id="profileLink"><i class="fa-duotone fa-solid fa-user-secret"></i></a>
+</div>
                 <div class="nav-icons">
                 <a href="cart.html"><i class="fa-duotone fa-solid fa-cart-flatbed-suitcase"></i></a>
                
@@ -379,6 +380,17 @@
         </div>
         <img src="image/blazerr.jpg" alt="Blazer">
       </div>
+      <script>
+  // Check if user is logged in (you can later enhance this using localStorage/session)
+  const isLoggedIn = localStorage.getItem("loggedIn");
+
+  const profileLink = document.getElementById("profileLink");
+  if (isLoggedIn === "true") {
+    profileLink.href = "profile.html"; // If logged in, go to profile
+  } else {
+    profileLink.href = "login.html";   // If not, go to login
+  }
+</script>
       
     <script src="index.js"></script>
 </body>

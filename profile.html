@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Profile - Vingt-Trois</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f0f0f0;
+      color: #333;
+    }
+    .profile-container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .profile-header h2 {
+      margin: 0;
+    }
+    .edit-icon {
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .profile-section label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    .profile-section span,
+    .profile-section input,
+    .profile-section textarea {
+      display: block;
+      margin-top: 5px;
+      width: 100%;
+    }
+    input, textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    #saveBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #saveBtn:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <div class="profile-header">
+      <h2 id="profileName">Your Profile</h2>
+      <span class="edit-icon" onclick="enableEdit()">&#9998;</span>
+    </div>
+
+    <div class="profile-header" style="margin-top: 20px;">
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <img id="profilePic" src="image/default-profile.jpeg" alt="Profile" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #ccc;">
+        <input type="file" id="profileInput" style="display: none;" accept="image/*" />
+        <button onclick="document.getElementById('profileInput').click()">Change Photo</button>
+      </div>
+    </div>
+
+    <div class="profile-section">
+      <label for="firstName">First Name</label>
+      <span id="firstNameDisplay"></span>
+      <input type="text" id="firstName" style="display:none" />
+
+      <label for="email">Email</label>
+      <span id="emailDisplay"></span>
+      <input type="email" id="email" style="display:none" />
+
+      <label for="dob">Date of Birth</label>
+      <span id="dobDisplay">Not set</span>
+      <input type="date" id="dob" style="display:none" />
+
+      <label for="location">Location</label>
+      <span id="locationDisplay">Not set</span>
+      <input type="text" id="location" placeholder="Enter city" style="display:none" />
+
+      <label for="address">Delivery Address</label>
+      <span id="addressDisplay">Not set</span>
+      <textarea id="address" rows="2" style="display:none"></textarea>
+
+      <button id="saveBtn" onclick="saveChanges()" style="display:none">Save</button>
+    </div>
+  </div>
+
+  <script>
+    const fields = ['firstName', 'email', 'dob', 'location', 'address'];
+
+    async function loadProfile() {
+      try {
+        const res = await fetch('/profile', {
+          method: 'GET',
+          credentials: 'include'
+        });
+
+        if (res.status === 401) {
+          alert('Please login first.');
+          window.location.href = 'login.html';
+          return;
+        }
+
+        if (!res.ok) throw new Error('Failed to load profile');
+
+        const data = await res.json();
+        const user = data.user;
+
+        // Populate UI
+        document.getElementById('firstNameDisplay').textContent = user.name || 'Not set';
+        document.getElementById('emailDisplay').textContent = user.email || 'Not set';
+        document.getElementById('dobDisplay').textContent = user.dob || 'Not set';
+        document.getElementById('locationDisplay').textContent = user.location || 'Not set';
+        document.getElementById('addressDisplay').textContent = user.address || 'Not set';
+
+        // Set inputs' values for edit mode
+        document.getElementById('firstName').value = user.name || '';
+        document.getElementById('email').value = user.email || '';
+        document.getElementById('dob').value = user.dob || '';
+        document.getElementById('location').value = user.location || '';
+        document.getElementById('address').value = user.address || '';
+
+        document.getElementById('profileName').textContent = (user.name || 'Your') + "'s Profile";
+        document.getElementById('profilePic').src = user.profilePic || 'image/default-profile.jpeg';
+      } catch (err) {
+        console.error('Error loading profile:', err);
+        alert('Error loading profile data.');
+      }
+    }
+
+    function enableEdit() {
+      fields.forEach(field => {
+        document.getElementById(`${field}Display`).style.display = 'none';
+        document.getElementById(field).style.display = 'block';
+      });
+      document.getElementById('saveBtn').style.display = 'block';
+    }
+
+    async function saveChanges() {
+      try {
+        const updated = {};
+        fields.forEach(field => {
+          updated[field] = document.getElementById(field).value.trim();
+        });
+
+        // Disable save button to prevent multiple clicks
+        const saveBtn = document.getElementById('saveBtn');
+        saveBtn.disabled = true;
+        saveBtn.textContent = 'Saving...';
+
+        const res = await fetch('/profile', {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(updated)
+        });
+
+        if (!res.ok) throw new Error('Failed to save profile');
+
+        // Update UI to display mode
+        fields.forEach(field => {
+          document.getElementById(`${field}Display`).textContent = updated[field] || 'Not set';
+          document.getElementById(field).style.display = 'none';
+          document.getElementById(`${field}Display`).style.display = 'block';
+        });
+
+        document.getElementById('profileName').textContent = (updated.firstName || 'Your') + "'s Profile";
+        alert('Profile updated successfully.');
+
+      } catch (err) {
+        console.error('Error saving profile:', err);
+        alert('Failed to save profile.');
+      } finally {
+        const saveBtn = document.getElementById('saveBtn');
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Save';
+        saveBtn.style.display = 'none';
+      }
+    }
+
+    document.getElementById('profileInput').addEventListener('change', async function (e) {
+      const file = e.target.files[0];
+      if (!file || !file.type.startsWith('image/')) return;
+
+      const formData = new FormData();
+      formData.append('profilePhoto', file);
+
+      try {
+        const res = await fetch('/upload-photo', {
+          method: 'POST',
+          credentials: 'include',
+          body: formData
+        });
+
+        const result = await res.json();
+        if (res.ok && result.success) {
+          document.getElementById('profilePic').src = result.profilePic;
+          alert('Profile photo updated.');
+        } else {
+          alert('Upload failed: ' + (result.message || 'Unknown error'));
+        }
+      } catch (err) {
+        console.error('Error uploading image:', err);
+        alert('Error uploading image');
+      }
+    });
+
+    window.onload = loadProfile;
+  </script>
+</body>
+</html>
+
